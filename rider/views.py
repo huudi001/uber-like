@@ -8,9 +8,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db import transaction
 
 def index(request):
-    '''
-    View function for the landing page of the application
-    '''
+
     title = 'Rider'
     message = 'Landing Page'
     return render(request,'index.html',{"title":title,"message":message})
@@ -32,3 +30,4 @@ def new_driver(request):
             phone_number = request.POST.get('phone_number')
 
             new_driver = CabDriver(first_name=first_name, last_name=last_name, phone_number=phone_number)
+            return render(request, 'new_driver.html', {"title":title, "new_driver": new_driver})
