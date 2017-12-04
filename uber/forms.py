@@ -9,5 +9,5 @@ class NewCabDriver(forms.ModelForm):
 class UpdateCabProfile(forms.ModelForm):
 
     class Meta:
-        model = DriverProfile
+        model = CabDriverProfile
         fields =  'profile_pic', 'car_image', 'car_capacity', 'car_number_plate', 'car_color')
