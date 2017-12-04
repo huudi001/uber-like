@@ -8,14 +8,14 @@
     <meta charset="UTF-8">
 
     {%if title%}
-        <title>{{title}}</title>
+        <title>{{title}}</title >
     {% else %}
         <title>Riders</title>
     {% endif %}
 
     {% block styles %}
         {% bootstrap_css %}
-      
+
     {% endblock %}
 
 </head>
@@ -38,7 +38,7 @@
 
                         <li>
 
-                            <a href="{%url 'newdriver'%}">
+                            <a href="{%url 'newcabdriver'%}">
                                 Driver
                               </a>
 
@@ -50,7 +50,7 @@
 
                           <li>
 
-                              <a href="{%url 'newriderr'%}">
+                              <a href="{%url 'newrider'%}">
                                   rider
                               </a>
 
