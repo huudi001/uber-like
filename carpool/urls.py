@@ -2,7 +2,7 @@ from django.conf.urls import include, url
 from django.contrib import admin
 from . import views
 
-urlpatterns = [         
+urlpatterns = [
     url(r"^$", views.HomePage.as_view(), name="home"),
     url(r"^test/$", views.TestPage.as_view(), name="test"),
     url(r"^thanks/$", views.ThanksPage.as_view(), name="thanks"),
@@ -12,3 +12,4 @@ urlpatterns = [
     url(r"^journeys/", include("journeys.urls", namespace="journeys")),
     url(r"^notification/", include("notification.urls", namespace="notification")),
 ]
+   
