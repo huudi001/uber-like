@@ -12,4 +12,4 @@ urlpatterns = [
     url(r"^journeys/", include("journeys.urls", namespace="journeys")),
     url(r"^notification/", include("notification.urls", namespace="notification")),
 ]
-   
+      
