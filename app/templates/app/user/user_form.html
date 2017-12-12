@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>MY RIDE</title>
+
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="{% static "app/bootstrap/css/bootstrap.min.css" %}">
+
+    <link rel="stylesheet" href="{% static "app/dist/css/AdminLTE.min.css" %}">
+
+    <link rel="stylesheet" href="{% static "app/dist/css/skins/app-skin.css" %}">
+
+
+
+
+    <!-- Fonts -->
+    <link type="text/css" href={% static 'app/css/font-awesome.min.css' %} rel="stylesheet">
+
+</head>
+
+<style>
+    .login-page, .register-page{
+        background: transparent;
+    }
+    #logo-text{
+        color: white;
+    }
+    html{
+
+        background: url({% static 'app/img/cover.jpg' %}) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+</style>
+
+<body class="hold-transition register-page">
+<div class="register-box">
+    <div class="register-logo">
+        <a href="/" id="logo-text"><i class="fa fa-car"></i>&nbsp;<b>My</b>ride</a>
+    </div>
+
+    <div class="register-box-body">
+        <p class="login-box-msg">Just a few more steps</p>
+
+
+        <form action="" autocomplete="on" role="form" method="post" enctype="multipart/form-data">
+
+            {% csrf_token %}
+            {% include 'app/template_form.html' %}
+
+            <div class="col-xs-offset-8 col-xs-4">
+                <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+            </div>
+
+        </form>
+
+        <
+
+
+        <a href="{% url 'app:login' %}" class="text-center">login</a>
+    </div>
+    <!-- /.form-box -->
+</div>
+<!-- /.register-box -->
+
+<script>
+
+
+</script>
+<!-- jQuery 2.2.3 -->
+<script src="{% static "app/plugins/jQuery/jquery-2.2.3.min.js" %}"></script>
+<!-- Bootstrap 3.3.6 -->
+<script src="{% static "app/bootstrap/js/bootstrap.min.js" %}"></script>
+
+
+</body>

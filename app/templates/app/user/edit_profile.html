@@ -1,0 +1,29 @@
+{% extends 'app/user/user_template.html' %}
+{% block username %}{{  request.user.username}}{% endblock %}
+
+
+
+{% block navigation %}
+    {% if request.user.user_type == 'Driver' %}
+        {% include 'app/user/driver_template.html' %}
+    {% elif request.user.user_type == 'Passenger' %}
+        {% include 'app/user/passenger_template.html' %}
+    {% endif %}
+
+{% endblock %}
+
+
+
+
+
+{% block body %}
+{% if request.user.id == user.id %}
+    {% include 'app/user/edit_profile_main.html' %}
+{% else %}
+    <section class="main-content">
+        <h1 class="alert-danger alert text-center">FORBIDDEN</h1>
+
+    </section>
+{% endif %}
+
+{% endblock %}
