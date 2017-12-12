@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+{% block content %}
+    <div class="container">
+        <h1>Search</h1>
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places&callback=onLoaded" async
+                defer></script>
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" value="Search" class="btn btn-primary btn-large">
+        </form>
+
+        <div class="container" style="margin-top: 20px">
+            {% for journey in journeys %}
+                <a class="list-group-item" href="{% url 'journeys:single' pk=journey.pk %}">
+                    <h3 class="title list-group-item-heading">{{ journey.created_by }}</h3>
+                    <div class="list-group-item-text container-fluid">
+                        {{ journey.description|safe }}
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        {% if not journeys %}
+            {% if user.is_authenticated %}
+                <h2 align="center" class="jumbotron">If no result displayed, please
+                    <a href="{% url 'journeys:create' user_id=user.pk %}">Create </a>
+                    a journey.
+                </h2>
+            {% else %}
+                <h2 align="center" class="jumbotron">If no result displayed, please
+                    <a href="{% url 'accounts:login' %}">login</a>
+                    and create a journey.
+                </h2>
+            {% endif %}
+
+        {% endif %}
+        <script>
+            var onLoaded = function () {
+                var input1 = document.getElementById('startingFromTextField');
+                var input2 = document.getElementById('goingToTextField');
+                var autocomplete = new google.maps.places.Autocomplete(input1);
+                var autocomplete2 = new google.maps.places.Autocomplete(input2);
+            }
+        </script>
+    </div>
+{% endblock %}
